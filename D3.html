@@ -8,34 +8,73 @@
   <script src="http://d3js.org/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
 
 <style>
-	div
+	.div-width
 	{
 	background-color: steelblue;
 	margin: 5px;
 	font: italic small-caps normal 13px/150% Arial, Helvetica, sans-serif;
 	color: white;
 	padding: 10px 40px 10px 10px;
-	width: inherit;   
+	width: inherit; 
+	max-width:300px; 
+	}
+
+	.div-width:hover
+	{
+	background-color:#ccc;
+	}
+
+	.div-height
+	{
+	background-color: steelblue;
+	margin: 5px;
+	font: italic small-caps normal 13px/150% Arial, Helvetica, sans-serif;
+	color: white;
+	padding: 10px 40px 10px 10px;
+	width: inherit; 
+	max-width:300px; 
+	height:100px;
+	}
+
+	.div-height:hover
+	{
+	background-color:#ccc;
 	}
 </style>
 
 </head>
 <body>
 
-<div>one</div>
-<div>two</div>
-<div>three</div>
-<div>four</div>
-<div>five</div>
+<div class="div-width">one</div>
+<div class="div-width">two</div>
+<div class="div-width">three</div>
+<div class="div-width">four</div>
+<div class="div-width">five</div>
 
-  <script type="text/javascript">
-    d3.selectAll("div")
+<div class="div-height">one</div>
+<div class="div-height">two</div>
+<div class="div-height">three</div>
+<div class="div-height">four</div>
+<div class="div-height">five</div>
+
+
+<script type="text/javascript">
+    d3.selectAll(".div-width")
     .data([25,30,35,40,45])
     .transition()
     .duration(3000)
+    .style("width",function(d){return d + "px";})
 
-   .style("width",function(d){return d + "px";})
- 
-   </script>
+    d3.selectAll(".div-height")
+    .data([25,30,35,40,45])
+    .transition()
+    .duration(3000)
+    .style("height",function(d){return d + "px";})
+
+
+
+
+</script>
+
 </body>
 </html>
